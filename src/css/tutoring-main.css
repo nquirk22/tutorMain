@@ -1,0 +1,18 @@
+.list-view {
+  -fx-font-size: 11pt;
+  -fx-font-family: sans-serif;
+}
+.list-cell:selected {
+  -fx-background-color: #cbd;
+  -fx-text-fill: black;
+  -fx-font-weight: bold;
+}
+.list-view:focused .list-cell:selected {
+  -fx-background-color: #ddc;
+}
+.menu-bar {
+  -fx-font-size: 11pt;
+}
+.text-area {
+  -fx-font-size: 12pt;
+}
