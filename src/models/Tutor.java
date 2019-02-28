@@ -9,6 +9,7 @@ public class Tutor extends Model {
 
     private int id = 0;
     private String name;
+    private String email;
     private int subject_id;
 
     // corresponds to a database table
@@ -20,6 +21,7 @@ public class Tutor extends Model {
 
     public Tutor(String name, int subject_id) {
         this.name = name;
+        this.email = email;
         this.subject_id = subject_id;
     }
 
@@ -31,13 +33,25 @@ public class Tutor extends Model {
     public String getName() {
         return name;
     }
+    
+    public String getEmail() {
+        return email;
+    }
 
     public int getSubjectId() {
         return subject_id;
     }
+    
+    public String getTutorSubjectName() {
+        return getTutorSubject().getName();
+    }
 
     public void setName(String name) {
         this.name = name;
+    }
+    
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setSubjectId(int subject_id) {
@@ -50,6 +64,7 @@ public class Tutor extends Model {
         try {
             id = rs.getInt("id");
             name = rs.getString("name");
+            email = rs.getString("email");
             subject_id = rs.getInt("subject_id");
         } catch (SQLException ex) {
             throw new RuntimeException(ex.getClass() + ":" + ex.getMessage());
@@ -62,10 +77,11 @@ public class Tutor extends Model {
         Connection cx = ORM.connection();
         try {
             String sql = String.format(
-                    "insert into %s (name,subject_id) values (?,?)", TABLE);
+                    "insert into %s (name,email,subject_id) values (?,?,?)", TABLE);
             PreparedStatement st = cx.prepareStatement(sql);
             int i = 0;
             st.setString(++i, name);
+            st.setString(++i, email);
             st.setInt(++i, subject_id);
             st.executeUpdate();
             id = ORM.getMaxId(TABLE);
@@ -80,10 +96,11 @@ public class Tutor extends Model {
         Connection cx = ORM.connection();
         try {
             String sql = String.format(
-                    "update %s set name=?,subject_id=? where id=?", TABLE);
+                    "update %s set name=?,email=?,subject_id=? where id=?", TABLE);
             PreparedStatement st = cx.prepareStatement(sql);
             int i = 0;
             st.setString(++i, name);
+            st.setString(++i, email);
             st.setInt(++i, subject_id);
             st.setInt(++i, id);
             st.executeUpdate();
@@ -91,9 +108,17 @@ public class Tutor extends Model {
             throw new RuntimeException(ex.getClass() + ":" + ex.getMessage());
         }
     }
+    
+    public Subject getTutorSubject() {
+        Subject subject = ORM.findOne(Subject.class,
+                    "where id=?",
+                    new Object[]{this.subject_id}
+            );
+        return subject;
+    }
 
     @Override
     public String toString() {
-        return String.format("(%s,%s,%s)", id, name, subject_id);
+        return String.format("(%s,%s,%s,%s)", id, name, email, subject_id);
     }
 }

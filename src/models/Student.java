@@ -5,6 +5,9 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class Student extends Model {
 
@@ -90,6 +93,50 @@ public class Student extends Model {
         } catch (SQLException ex) {
             throw new RuntimeException(ex.getClass() + ":" + ex.getMessage());
         }
+    }
+
+    public Collection<Interaction> getStudentInteractions() {
+        return ORM.findAll(
+                Interaction.class,
+                "where student_id=?",
+                new Object[]{id});
+    }
+
+    public boolean hasTutor(int tutorId) {
+        for (Interaction interaction : getStudentInteractions()) {
+            if (interaction.getTutorId() == tutorId) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public List<String> getSubjectNames() {
+        List<String> subjects = new ArrayList<>();
+        for (Interaction interaction : getStudentInteractions()) {
+            Tutor tutor = ORM.findOne(Tutor.class,
+                                        "where id=?",
+                                        new Object[]{interaction.getTutorId()});
+            Subject subject = ORM.findOne(Subject.class,
+                                        "where id=?",
+                                        new Object[]{tutor.getSubjectId()});
+            subjects.add(subject.getName());
+        }
+        return subjects;
+    }
+    
+    public List<Integer> getSubjectIds() {
+        List<Integer> subjects = new ArrayList<>();
+        for (Interaction interaction : getStudentInteractions()) {
+            Tutor tutor = ORM.findOne(Tutor.class,
+                                        "where id=?",
+                                        new Object[]{interaction.getTutorId()});
+            Subject subject = ORM.findOne(Subject.class,
+                                        "where id=?",
+                                        new Object[]{tutor.getSubjectId()});
+            subjects.add(subject.getId());
+        }
+        return subjects;
     }
 
     @Override
