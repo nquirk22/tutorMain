@@ -3,25 +3,29 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/nquir/Documents/workspace/tutorMain/src/setup/tables/interaction-mysql.sql</file>
-            <file>file:/C:/Users/nquir/Documents/workspace/tutorMain/src/setup/MakeTables.java</file>
-            <file>file:/C:/Users/nquir/Documents/workspace/tutorMain/src/models/Student.java</file>
-            <file>file:/C:/Users/nquir/Documents/workspace/tutorMain/src/setup/Helper.java</file>
-            <file>file:/C:/Users/nquir/Documents/workspace/tutorMain/src/setup/tables/tutor-mysql.sql</file>
-            <file>file:/C:/Users/nquir/Documents/workspace/tutorMain/src/models/Subject.java</file>
-            <file>file:/C:/Users/nquir/Documents/workspace/tutorMain/src/tutoringfx/StudentCellCallback.java</file>
-            <file>file:/C:/Users/nquir/Documents/workspace/tutorMain/src/setup/PopulateTables.java</file>
-            <file>file:/C:/Users/nquir/Documents/workspace/tutorMain/src/tutoringfx/TutoringController.java</file>
-            <file>file:/C:/Users/nquir/Documents/workspace/tutorMain/src/models/Interaction.java</file>
-            <file>file:/C:/Users/nquir/Documents/workspace/tutorMain/src/tutoringfx/Helper.java</file>
-            <file>file:/C:/Users/nquir/Documents/workspace/tutorMain/src/tutoringfx/TutorCellCallback.java</file>
-            <file>file:/C:/Users/nquir/Documents/workspace/tutorMain/src/models/ORM.java</file>
-            <file>file:/C:/Users/nquir/Documents/workspace/tutorMain/src/setup/tables/student-mysql.sql</file>
-            <file>file:/C:/Users/nquir/Documents/workspace/tutorMain/src/models/Tutor.java</file>
-            <file>file:/C:/Users/nquir/Documents/workspace/tutorMain/src/setup/CreateTables.java</file>
-            <file>file:/C:/Users/nquir/Documents/workspace/tutorMain/src/tutoringfx/TutoringFX.java</file>
-            <file>file:/C:/Users/nquir/Documents/workspace/tutorMain/src/setup/tables/subject-mysql.sql</file>
-            <file>file:/C:/Users/nquir/Documents/workspace/tutorMain/src/tutoringfx/ExpectedException.java</file>
+            <file>file:/C:/Users/Nathan/workspace/TutoringFX/src/tutoringfx/TutorCellCallback.java</file>
+            <file>file:/C:/Users/Nathan/workspace/TutoringFX/src/tutoringfx/AddTutor.fxml</file>
+            <file>file:/C:/Users/Nathan/workspace/TutoringFX/src/setup/tables/subject-mysql.sql</file>
+            <file>file:/C:/Users/Nathan/workspace/TutoringFX/src/models/Tutor.java</file>
+            <file>file:/C:/Users/Nathan/workspace/TutoringFX/src/tutoringfx/ExpectedException.java</file>
+            <file>file:/C:/Users/Nathan/workspace/TutoringFX/src/tutoringfx/TutoringFX.java</file>
+            <file>file:/C:/Users/Nathan/workspace/TutoringFX/src/tutoringfx/AddTutorController.java</file>
+            <file>file:/C:/Users/Nathan/workspace/TutoringFX/src/tutoringfx/AddStudentController.java</file>
+            <file>file:/C:/Users/Nathan/workspace/TutoringFX/src/tutoringfx/EditInteractionController.java</file>
+            <file>file:/C:/Users/Nathan/workspace/TutoringFX/src/models/ORM.java</file>
+            <file>file:/C:/Users/Nathan/workspace/TutoringFX/src/setup/Helper.java</file>
+            <file>file:/C:/Users/Nathan/workspace/TutoringFX/src/tutoringfx/EditInteraction.fxml</file>
+            <file>file:/C:/Users/Nathan/workspace/TutoringFX/src/tutoringfx/TutoringController.java</file>
+            <file>file:/C:/Users/Nathan/workspace/TutoringFX/src/tutoringfx/AddStudent.fxml</file>
+            <file>file:/C:/Users/Nathan/workspace/TutoringFX/src/tutoringfx/AddSubjectController.java</file>
+            <file>file:/C:/Users/Nathan/workspace/TutoringFX/src/models/Model.java</file>
+            <file>file:/C:/Users/Nathan/workspace/TutoringFX/src/models/Subject.java</file>
+            <file>file:/C:/Users/Nathan/workspace/TutoringFX/src/models/Student.java</file>
+            <file>file:/C:/Users/Nathan/workspace/TutoringFX/src/tutoringfx/AddSubject.fxml</file>
+            <file>file:/C:/Users/Nathan/workspace/TutoringFX/src/tutoringfx/Helper.java</file>
+            <file>file:/C:/Users/Nathan/workspace/TutoringFX/src/tutoringfx/StudentCellCallback.java</file>
+            <file>file:/C:/Users/Nathan/workspace/TutoringFX/src/setup/tables/interaction-mysql.sql</file>
+            <file>file:/C:/Users/Nathan/workspace/TutoringFX/build.xml</file>
         </group>
     </open-files>
 </project-private>

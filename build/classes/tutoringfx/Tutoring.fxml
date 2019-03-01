@@ -7,47 +7,59 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/tutoring-main.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tutoringfx.TutoringController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/tutoring-main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tutoringfx.TutoringController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" onShown="#activateUsersMenuItems" text="Student">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" onAction="#addStudent" text="Add Student" />
+              <MenuItem fx:id="removeStudentMenuItem" mnemonicParsing="false" onAction="#removeStudent" text="Delete Student" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" onShown="#activateUsersMenuItems" text="Tutor">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+                  <MenuItem mnemonicParsing="false" onAction="#addTutor" text="Add Tutor" />
+              <MenuItem fx:id="removeTutorMenuItem" mnemonicParsing="false" onAction="#removeTutor" text="Delete Tutor" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#addSubject" text="Add Subject" />
+                  <MenuItem mnemonicParsing="false" onAction="#editInteraction" text="Edit Interaction" />
+              </items>
+            </Menu>
         </menus>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
       </MenuBar>
    </top>
    <right>
-      <VBox prefHeight="200.0" spacing="5.0" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#report" text="Interaction&#10;Report" />
-            <Button mnemonicParsing="false" onAction="#assignTutor" text="Assign Tutor" />
-            <Button mnemonicParsing="false" onAction="#unassignTutor" text="Unassign Tutor" />
-            <Button mnemonicParsing="false" onAction="#clear" text="Clear" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#report" text="Interaction&#10;Report" textAlignment="CENTER" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#assignTutor" text="Assign&#10;Tutor" textAlignment="CENTER" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#unassignTutor" text="Unassign&#10;Tutor" textAlignment="CENTER" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clear" text="Clear" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding></VBox>
+         </padding>
+         <BorderPane.margin>
+            <Insets top="40.0" />
+         </BorderPane.margin></VBox>
    </right>
    <center>
       <SplitPane dividerPositions="0.75" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
@@ -64,16 +76,38 @@
                <children>
                   <ListView fx:id="studentList" onMouseClicked="#studentSelect" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
                   <ListView fx:id="tutorList" onMouseClicked="#tutorSelect" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label text="Students">
+                  <HBox alignment="CENTER_LEFT">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
-                  </Label>
-                  <Label text="Tutors" GridPane.columnIndex="1">
+                     <children>
+                        <Label text="Students">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <RadioButton fx:id="orderButton" mnemonicParsing="false" onAction="#orderBy" text="sort by enrollment">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
-                  </Label>
+                     <children>
+                        <Label text="Tutors">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
                </children>
             </GridPane>
             <TextArea fx:id="display" editable="false" onMouseClicked="#refocus" prefHeight="200.0" prefWidth="200.0" />

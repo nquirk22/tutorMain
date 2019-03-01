@@ -19,7 +19,7 @@ public class Tutor extends Model {
     Tutor() {
     }
 
-    public Tutor(String name, int subject_id) {
+    public Tutor(String name, String email, int subject_id) {
         this.name = name;
         this.email = email;
         this.subject_id = subject_id;

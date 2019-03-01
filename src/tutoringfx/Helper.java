@@ -27,7 +27,7 @@ public class Helper {
                 tutor.getId(),
                 tutor.getName(),
                 tutor.getEmail(),
-                "MISSING SUBJECT ID" //tutor.getSubjectId()
+                tutor.getTutorSubjectName()
         );
     }
 
